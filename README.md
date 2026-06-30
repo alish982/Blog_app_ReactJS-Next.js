@@ -15,7 +15,46 @@ A responsive blog platform built with Next.js 15 (App Router) and TypeScript, de
 - **react-hot-toast** — toast notifications
 - **MockAPI** — persistent REST API for posts (`https://mockapi.io`)
 
-## Getting started
+## Project structure
+
+```
+src/
+├── app/
+│   ├── (protected)/
+│   │   ├── dashboard/
+│   │   └── posts/
+│   │       ├── [id]/
+│   │       │   ├── edit/
+│   │       │   └── page.tsx
+│   │       └── create/
+│   ├── login/
+│   ├── register/
+│   └── layout.tsx, page.tsx, globals.css
+├── components/
+│   ├── ui/
+│   ├── layout/
+│   ├── auth/
+│   └── posts/
+├── hooks/
+│   ├── useAuth.ts
+│   ├── useHydrateAuth.ts
+│   ├── useHydrateTheme.ts
+│   ├── usePosts.ts
+│   └── usePost.ts
+├── store/
+│   ├── authStore.ts
+│   ├── postStore.ts
+│   └── themeStore.ts
+├── services/
+│   ├── axiosInstance.ts
+│   ├── authService.ts
+│   └── postService.ts
+├── types/
+└── utils/
+    ├── storage.ts
+    ├── format.ts
+    └── validation/
+```
 
 ### 1. Create a MockAPI project for posts
 
