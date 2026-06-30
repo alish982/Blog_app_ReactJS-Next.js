@@ -61,11 +61,25 @@ export function EditPostView({ postId }: EditPostViewProps) {
       <div>
         <Link
           href={`/posts/${postId}`}
-          className="text-sm text-ink/50 hover:text-ink"
+          className="inline-flex w-fit items-center gap-2 rounded-lg bg-slate-200 px-3 py-1 text-sm font-medium text-ink transition-all duration-200 hover:bg-slate-300 hover:shadow-sm active:scale-95 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700"
         >
-          ← Back to post
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-5"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+            />
+          </svg>
+          Back
         </Link>
-        <h1 className="mt-2 font-serif text-2xl text-ink sm:text-3xl">
+        <h1 className="mt-4 font-serif text-2xl text-ink sm:text-3xl">
           Edit post
         </h1>
         <p className="mt-1 text-sm text-ink/60">

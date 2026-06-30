@@ -13,7 +13,9 @@ export function PostCard({ post, onDeleteClick }: PostCardProps) {
     <article className="group flex flex-col rounded-xl border border-line bg-surface p-5 transition-shadow hover:shadow-md">
       <div className="flex items-start justify-between gap-3">
         {post.category && (
-          <Badge className={categoryColor(post.category)}>{post.category}</Badge>
+          <Badge className={categoryColor(post.category)}>
+            {post.category}
+          </Badge>
         )}
         <span className="text-xs text-ink/40">#{post.userId}</span>
       </div>
@@ -22,19 +24,18 @@ export function PostCard({ post, onDeleteClick }: PostCardProps) {
         <h3 className="font-serif text-lg leading-snug text-ink group-hover:text-accent transition-colors">
           {post.title}
         </h3>
+        <p className="mt-2 text-sm leading-relaxed text-ink/60">
+          {truncate(stripHtml(post.body), 110)}
+        </p>
+
+        {post.tags && post.tags.length > 0 && (
+          <div className="mt-3 flex flex-wrap gap-1.5">
+            {post.tags.map((tag) => (
+              <Badge key={tag}>{`#${tag}`}</Badge>
+            ))}
+          </div>
+        )}
       </Link>
-
-      <p className="mt-2 text-sm leading-relaxed text-ink/60">
-        {truncate(stripHtml(post.body), 110)}
-      </p>
-
-      {post.tags && post.tags.length > 0 && (
-        <div className="mt-3 flex flex-wrap gap-1.5">
-          {post.tags.map((tag) => (
-            <Badge key={tag}>{`#${tag}`}</Badge>
-          ))}
-        </div>
-      )}
 
       <div className="mt-5 flex items-center justify-between border-t border-line pt-4">
         <Link
